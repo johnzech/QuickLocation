@@ -1,0 +1,31 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "test": "jest --watchAll"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^36.0.1",
+    "expo-asset": "^8.0.0",
+    "expo-font": "^8.0.0",
+    "expo-location": "^8.0.0",
+    "expo-permissions": "^8.0.0",
+    "react": "^16.12.0",
+    "react-native": "^0.61.5",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.10.3",
+    "react-navigation-tabs": "^2.6.2"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "~8.0.0",
+    "jest-expo": "~36.0.0"
+  },
+  "private": true
+}
