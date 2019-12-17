@@ -24,8 +24,6 @@ class Loc extends Component {
         let ask_obj = {};
         if (granted === false && canAskAgain) {
             ask_obj = await Permissions.askAsync(Permissions.LOCATION);
-        } else {
-            console.log("skipping askAsync");
         }
 
         let granted2 = ask_obj['granted'];

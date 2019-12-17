@@ -11,10 +11,7 @@ class LocationThreeWords extends Loc {
     setConvertedText = async() => {
         if (this.state.location) {
             let words = await coords.latLonToThreeWords(this.state.location.coords.latitude, this.state.location.coords.longitude);
-            console.log("got words!!!!");
-            console.log(words);
             this.setState({convertedText: words});
-            console.log("set convertedText to: " + words);
         } else {
             this.setState({convertedText: 'Location not found/set.'});
         }
