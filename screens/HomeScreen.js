@@ -25,7 +25,7 @@ export default function HomeScreen() {
             source={
               __DEV__
                 ? require('../assets/images/earth.gif')
-                : require('../assets/images/earth.png')
+                : require('../assets/images/earth.gif')
             }
             style={styles.icon}
           />

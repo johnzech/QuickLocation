@@ -9,7 +9,8 @@ export const latLonToThreeWords = async(lat,lon) => {
 
 export const latlonToAddress = async(lat,lon) => {
     let address = '';
-    let key = 'nzKzq08JZlLRQICb5sec5JsPuIUxBnle';
+    // place your mapquest key here
+    let key = '';
     const response = await fetch('http://open.mapquestapi.com/geocoding/v1/reverse?key='+key+'&location='+lat+','+lon);
     const json = await response.json();
     let location = json.results[0].locations[0]
