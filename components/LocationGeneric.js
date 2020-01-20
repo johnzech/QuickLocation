@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+import { Button, Text, Block } from 'galio-framework';
 
 class Loc extends Component {
     constructor (props) {
         super(props);
-        this.state = {location: null, errorMessage: null, convertedText: null};
+        this.state = {location: null, errorMessage: null, convertedText: null, buttonLoading: false};
     }
 
     getButtonText = () => {
@@ -19,6 +19,7 @@ class Loc extends Component {
 
     getLocationAsync = async () => {
         // permissions returns only for location permissions on iOS and under certain conditions, see Permissions.LOCATION 
+        this.setState({ buttonLoading: true });
         this.setState({ errorMessage: null });
         const { granted, canAskAgain } = await Permissions.getAsync(Permissions.LOCATION);
         let ask_obj = {};
@@ -39,6 +40,7 @@ class Loc extends Component {
                 errorMessage: 'Permission to access location denied'
             });
         }
+        this.setState({ buttonLoading: false });
       };
 
     setConvertedText = async() => {
@@ -55,13 +57,19 @@ class Loc extends Component {
             text = this.state.convertedText;
         }
         return (
-            <View>
+            <Block
+                center middle
+            >
                 <Text style={{paddingBottom:10, fontSize:22, alignSelf:'center'}}>{text}</Text>
                 <Button 
+                    loading={this.state.buttonLoading}
+                    loadingSize='large'
+                    round
+                    color="info"
                     title={buttonText}
                     onPress={this.getLocationAsync}
-                />
-            </View>
+                >{buttonText}</Button>
+            </Block>
         );
     }
 

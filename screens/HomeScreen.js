@@ -3,9 +3,8 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native';
+import { Text, Block } from 'galio-framework';
 
 import LocationThreeWords from '../components/LocationThreeWords';
 import LocationLatLon from '../components/LocationLatLon';
@@ -13,29 +12,29 @@ import LocationAddress from '../components/LocationAddress';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <Block style={styles.container}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.devModeContainer}>
+        <Block style={styles.devModeContainer}>
           <DevelopmentModeNotice />
-        </View>
-        <View style={styles.iconContainer}>
+        </Block>
+        <Block style={styles.iconContainer}>
           <Image
             source={
               __DEV__
                 ? require('../assets/images/earth.gif')
-                : require('../assets/images/earth.gif')
+                : require('../assets/images/earth.png')
             }
             style={styles.icon}
           />
-        </View>
-        <View><Text style={styles.header}>WHERE AM I?</Text></View>
-        <View style={styles.locationBlockContainer}><LocationLatLon buttonText='Latitude/Longitude'/></View>
-        <View style={styles.locationBlockContainer}><LocationAddress buttonText='Address'/></View>
-        <View style={styles.locationBlockContainer}><LocationThreeWords buttonText='3 words'/></View>
+        </Block>
+        <Block><Text style={styles.header}>WHERE AM I?</Text></Block>
+        <Block style={styles.locationBlockContainer}><LocationLatLon buttonText='Latitude/Longitude'/></Block>
+        <Block style={styles.locationBlockContainer}><LocationAddress buttonText='Address'/></Block>
+        <Block style={styles.locationBlockContainer}><LocationThreeWords buttonText='3 words'/></Block>
       </ScrollView>
-    </View>
+    </Block>
   );
 }
 
